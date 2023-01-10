@@ -1,9 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import movies from './modules/movies';
+import loader from './modules/loader';
+import notification from './modules/notifications';
+
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
   },
   getters: {
@@ -13,5 +17,12 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    movies,
+    loader,
+    notification
   }
-})
+});
+
+store.dispatch('initMoviesStore');
+
+export default store;
